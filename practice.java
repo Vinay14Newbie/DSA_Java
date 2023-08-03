@@ -75,9 +75,10 @@ public class practice{
         return max;
     }
     public static void main(String[] args) {
+        System.out.println("hey there how's going :) ");
         // System.out.println("1");
-        int arr[] = {1, 2, 3, 4, 5};
-        System.out.println(slidingWindow(arr, 2));
+        // int arr[] = {1, 2, 3, 4, 5};
+        // System.out.println(slidingWindow(arr, 2));
         // int arr[][] = {{0, 1, 0},
         //                 {0, 0, 0},
         //                 {0, 1, 0}};
