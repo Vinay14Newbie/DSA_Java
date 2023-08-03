@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class arrays{
+public class recursions{
     public static void printNo(int n){
         if(n==0){
             return;

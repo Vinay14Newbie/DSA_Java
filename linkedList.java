@@ -1,4 +1,4 @@
-public class javaproblems{
+public class linkedList{
     public static class Node{
         int data;
         Node next;
