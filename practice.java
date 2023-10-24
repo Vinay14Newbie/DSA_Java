@@ -1,113 +1,57 @@
 import java.util.*;
 
-import java1.stack;
 public class practice{
-    public static class Node{
-        int data;
-        Node left;
-        Node right;
-
-        Node(int data){
-            this.data = data;
-        }
-    }
-    public static class BinaryTree{
-        static int index = -1;
-        public static Node buildTree(int arr[]){
-            index++;
-            if(arr[index] == -1){
-                return null;
-            }
-            Node temp = new Node(arr[index]);
-            temp.left = buildTree(arr);
-            temp.right = buildTree(arr);
-            return temp;
-        }
-    }
-    public static void preOrder(Node root){
-        if(root == null){
-            return;
-        }
-        System.out.print(root.data+" ");
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    public static int change(int n){
-        return 2;
-    }
-    public static int findCelebrity(int M[][], int n){
-        Stack<Integer> s = new Stack<>();
-        for(int i=0; i<n; i++){
-            s.push(i);
-        }
-        while(s.size() > 1){
-            int val1 = s.pop();
-            int val2 = s.pop();
-            if(M[val1][val2] == 0){
-                s.push(val2);
-            }else if(M[val2][val1] == 0){
-                s.push(val1);
+    public static class DisjointSet{
+        ArrayList<Integer> parent = new ArrayList<>();
+        ArrayList<Integer> rank = new ArrayList<>();
+        DisjointSet(int n){
+            for(int i=0; i<=n; i++){
+                parent.add(i);
+                rank.add(1);
             }
         }
-        if(s.isEmpty()) return -1;
-        int candidate = s.peek();
-        for(int i=0; i<n; i++){
-            if(M[candidate][i] == 1) return -1;
+        int findUltPar(int n){
+            if(parent.get(n) == n) return n;
+            int t = findUltPar(parent.get(n));
+            parent.set(n, t);
+            return t;
         }
-        for(int i=0; i<n; i++){
-            if(i == candidate) continue;
-            if(M[i][candidate] == 0) return -1;
-        }
-        return candidate;
-    }
-    public static int slidingWindow(int arr[], int k){
-        int max = Integer.MIN_VALUE;
-        int n = arr.length;
-        for(int i=0; i<n; i++){
-            int sum = 0;
-            for(int j=i; j<n && j<=k; j++){
-                sum += arr[j];
+        void unionByRank(int u, int v){
+            int uParU = findUltPar(u);
+            int uParV = findUltPar(v);
+            if(uParU == uParV) return;
+            if(rank.get(uParV) < rank.get(uParU)){
+                parent.set(uParV, uParU);
             }
-            if(max < sum){
-                max = sum;
+            else if(rank.get(uParV) > rank.get(uParU)){
+                parent.set(uParU, uParV);
+            }
+            else{
+                parent.set(uParV, uParU);
+                rank.set(uParU, rank.get(uParU)+1);
             }
         }
-        return max;
     }
     public static void main(String[] args) {
-        // System.out.println("1");
-        // int arr[] = {1, 2, 3, 4, 5};
-        // System.out.println(slidingWindow(arr, 2));
-        // int arr[][] = {{0, 1, 0},
-        //                 {0, 0, 0},
-        //                 {0, 1, 0}};
-        // System.out.println(findCelebrity(arr, arr.length));
+        DisjointSet ds = new DisjointSet(7);
+        ds.unionByRank(1, 2);
+        ds.unionByRank(2, 3);
+        ds.unionByRank(4, 5);
+        ds.unionByRank(6, 7);
+        ds.unionByRank(5, 6);
+        
+        //if 3 and 7 same or not
+        if(ds.findUltPar(3) == ds.findUltPar(7)){
+            System.out.println("Same");
+        }else{
+            System.out.println("Not same");
+        }
+        ds.unionByRank(3, 7);
+        if(ds.findUltPar(3) == ds.findUltPar(7)){
+            System.out.println("Same");
+        }else{
+            System.out.println("Not same");
+        }
 
-        // int n = 1;
-        // change(n);
-        // System.out.println(change(n));
-        // System.out.println(n);
-        // int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-        // BinaryTree tree = new BinaryTree();
-        // Node root = tree.buildTree(nodes);
-        // preOrder(root);
-        // System.out.println(root.data);
-        // char s[] = {'h','e','l','l','o'};
-        // Stack<Character> str = new Stack<>();
-        // for(int i=0; i<s.length; i++){
-        //     str.push(s[i]);
-        // }   
-        // String ans = "";
-        // while(!str.empty()){
-        //     ans += str.pop();
-        // }
-        // System.out.print(ans);
-        // Stack<Integer> s = new Stack();
-        // s.push()
-        // Queue<Integer> q = new LinkedList<>();
-        // q.add(1);
-        // q.add(2);
-        // q.remove();
-        // System.out.println(q);
     }
 }
