@@ -4,7 +4,7 @@ public class practice{
     public static class DisjointSet{
         ArrayList<Integer> parent = new ArrayList<>();
         ArrayList<Integer> rank = new ArrayList<>();
-        DisjointSet(int n){
+        DisjointSet(int n){  // size of graph
             for(int i=0; i<=n; i++){
                 parent.add(i);
                 rank.add(1);
@@ -33,7 +33,7 @@ public class practice{
         }
     }
     public static void main(String[] args) {
-        DisjointSet ds = new DisjointSet(7);
+        DisjointSet ds = new DisjointSet(7);  
         ds.unionByRank(1, 2);
         ds.unionByRank(2, 3);
         ds.unionByRank(4, 5);
@@ -44,7 +44,7 @@ public class practice{
         if(ds.findUltPar(3) == ds.findUltPar(7)){
             System.out.println("Same");
         }else{
-            System.out.println("Not same");
+            System.out.println("Not Same And ultimate parent of 3 is :- "+ds.findUltPar(3)+" and ultimate parent of 7 is :- "+ds.findUltPar(7));
         }
         ds.unionByRank(3, 7);
         if(ds.findUltPar(3) == ds.findUltPar(7)){
