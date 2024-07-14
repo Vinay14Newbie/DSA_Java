@@ -1,6 +1,6 @@
 package java1;
 
-public class o{
+public class linkedList_problems{
     public static class Node{
         int val; 
         Node next;

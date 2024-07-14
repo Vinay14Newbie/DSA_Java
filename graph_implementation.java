@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class practice{
+public class graph_implementation{
     public static class DisjointSet{
         ArrayList<Integer> parent = new ArrayList<>();
         ArrayList<Integer> rank = new ArrayList<>();
@@ -53,5 +53,16 @@ public class practice{
             System.out.println("Not same");
         }
 
+
+
+        int arr[][][] = {{{1, 2, 3},{4, 5, 6}}, {{2,5,6}, {9, 3,0}}};
+        // for(int i=0; i<arr[0].length; i++){
+        //     for(int j=0; j<arr[0][i].length; j++){
+        //         System.out.println(arr[0][i][j]);
+        //     }
+        // }
+        for(var i : arr[0]){
+            System.out.println(i[2]);
+        }
     }
 }

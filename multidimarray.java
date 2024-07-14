@@ -1,4 +1,3 @@
-
 public class multidimarray{
   public static int firstOccurance(int arr[], int target){
     int start = 0, end = arr.length-1, ans = -1;

@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-import java1.testing; //to access class from different package or folder we have to import that package
+import java1.linkedList_implementation; //to access class from different package or folder we have to import that package
 
 public class oops{
   // creating a new data type with multiple artribute

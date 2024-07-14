@@ -1,6 +1,6 @@
 package java1;
 
-public class testing{
+public class linkedList_implementation{
     public static class Node{
         int data;
         Node next;
@@ -78,7 +78,7 @@ public class testing{
         head = prev;
     }
     public static void main(String args[]){
-        testing dll = new testing();
+        linkedList_implementation dll = new linkedList_implementation();
         dll.addFirst(3);
         dll.addFirst(5);
         dll.addFirst(8);
