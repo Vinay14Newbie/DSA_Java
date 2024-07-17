@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class problems{
+public class problems1{
     public static void printSubarrays(int arr[]){
         for(int i=0; i<arr.length; i++){
             // System.out.print(arr[i]+" ");

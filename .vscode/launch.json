@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "problems2",
+            "request": "launch",
+            "mainClass": "problems2",
+            "projectName": "java_986f181f"
+        },
+        {
+            "type": "java",
             "name": "BTree",
             "request": "launch",
             "mainClass": "java1.BTree",

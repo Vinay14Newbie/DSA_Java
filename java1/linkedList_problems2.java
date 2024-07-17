@@ -1,4 +1,5 @@
-public class linkedList{
+package java1;
+public class linkedList_problems2{
     public static class Node{
         int data;
         Node next;

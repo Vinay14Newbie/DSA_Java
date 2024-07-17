@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class butterfly{
+public class butterfly0{
     public static void prefixSum(int matrix[][]){
         int row = matrix.length;
         int column = matrix[0].length;
