@@ -157,16 +157,55 @@ public class problems1{
         int second = longestSubSeq(dp, s1, s2, n, m-1);
         return dp[n][m] = Math.max(first, second);
     }
-    public static void main(String args[]){
-        
-        String str1 = "ABCDGH";
-        String str2 = "AEDFHR";
-        int n = str1.length(), m = str2.length();
-        int dp[][] = new int[n][m];
+
+    public static int celebrityProb(int arr[][]){
+        int n = arr.length;
+        Stack<Integer> st = new Stack<>();
         for(int i=0; i<n; i++){
-            Arrays.fill(dp[i], -1);
+            st.push(i);
         }
-        System.out.println(longestSubSeq(dp, str1, str2, n-1, m-1));
+        while(st.size() > 1){
+            int v1 = st.pop();
+            int v2 = st.pop();
+            if(arr[v1][v2]==0){
+                st.push(v2);
+            }
+            else if(arr[v2][v1]==0){
+                st.push(v1);
+            }
+        }
+        if(st.isEmpty()) return -1;
+        int candidate = st.pop();
+        for(int i=0; i<n; i++){
+            if(i==candidate) continue;
+            if(arr[i][candidate]==0) return-1;
+        }
+        for(int i=0; i<n; i++){
+            if(i==candidate) continue;
+            if(arr[candidate][i]==0) return -1;
+        }
+        return candidate;
+    }
+    public static void main(String args[]){
+
+        int arr[][] =  {{0, 1, 0},
+                        {0, 0, 0}, 
+                        {0, 1, 0}};
+        System.out.println(celebrityProb(arr));
+        System.out.println(294+"vinay");
+
+        // int a = 39/8;
+        // System.out.println(a);
+
+        
+        // String str1 = "ABCDGH";
+        // String str2 = "AEDFHR";
+        // int n = str1.length(), m = str2.length();
+        // int dp[][] = new int[n][m];
+        // for(int i=0; i<n; i++){
+        //     Arrays.fill(dp[i], -1);
+        // }
+        // System.out.println(longestSubSeq(dp, str1, str2, n-1, m-1));
 
         // butterfly(5);
         // int dp[] = new int[arr.length];
